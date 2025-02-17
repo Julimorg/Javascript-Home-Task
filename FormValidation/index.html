@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src = "./form.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="form-header">
+            <h2 id="form-title">Create Account</h2>
+        </div>
+        <form id="registrationForm" aria-labelledby="form-title" aria-describedby="form-description">
+            <div class="form-group">
+                <label for="name" id="name-label">Full Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    required
+                    aria-required="true"
+                    aria-describedby="name-description name-error"
+                    autocomplete="name">
+                <span id="name-error" class="error-message" role="alert"></span>
+            </div>
+            <div class="form-group">
+                <label for="email" id="email-label">Email Address</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    required
+                    aria-required="true"
+                    aria-describedby="email-description email-error"
+                    autocomplete="email">
+                <span id="email-error" class="error-message" role="alert"></span>
+            </div>
+            
+            <div class="form-group">
+                <!--** Password -->
+                <label for="password" id="password-label">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    required
+                    aria-required="true"
+                    aria-describedby="password-description password-requirements password-error"
+                    autocomplete="new-password">
+                <!--** Confirm Pass -->
+                <label for="password" id="password-label">Confirm Passwormd</label>
+                <input 
+                    type="password" 
+                    id="confirm-password" 
+                    required
+                    aria-required="true"
+                    aria-describedby="password-description password-requirements password-error"
+                    autocomplete="new-password">
+                <button type="button" class="password-toggle">
+                    <i class="fa-regular fa-eye-slash eyeclose"></i>
+                    <i class="fa-regular fa-eye eyeopen"></i> 
+                </button>
+                
+                <div id="password-requirements" class="password-requirements" aria-live="polite">
+                    <div class="requirement" data-requirement="length">
+                        <span class="requirement-icon">✓</span>
+                        <span>At least 8 characters</span>
+                    </div>
+                    <div class="requirement" data-requirement="uppercase">
+                        <span class="requirement-icon">✓</span>
+                        <span>One uppercase letter</span>
+                    </div>
+                    <div class="requirement" data-requirement="number">
+                        <span class="requirement-icon">✓</span>
+                        <span>One number</span>
+                    </div>
+                    <div class="requirement" data-requirement="special">
+                        <span class="requirement-icon">✓</span>
+                        <span>One special character</span>
+                    </div>
+                </div>
+                <span id="password-error" class="error-message" role="alert"></span>
+            </div>
+            
+            <button type="submit" aria-describedby="submit-description">
+                Create Account
+            </button>
+            <span id="submit-description" class="visually-hidden">Click to create your account once all fields are filled</span>
+            <div class="success-message" role="alert">Account created successfully!</div>
+        </form>
+    </div>
+</body>
+</html>

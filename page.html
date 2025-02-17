@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced JavaScript Concepts</title>
+    <script>
+        // Constants and Variables
+        const PI = 3.14159;
+        let message = "Hello, Advanced JavaScript!";
+        var count = 5;
+
+        // Operators
+        let a = 10, b = 20;
+        let sum = a + b;
+        let product = a * b;
+        let difference = b - a;
+        let quotient = b / a;
+        let modulus = b % a;
+
+        // Conditional Statements
+        function checkNumber(num) {
+            return num > 0 ? "Positive" : num < 0 ? "Negative" : "Zero";
+        }
+
+        // Loop Examples
+        function countToTen() {
+            let result = "";
+            for (let i = 1; i <= 10; i++) {
+                result += i + " ";
+            }
+            return result;
+        }
+
+        function whileLoopExample() {
+            let i = 5, result = "";
+            while (i > 0) {
+                result += i + " ";
+                i--;
+            }
+            return result;
+        }
+
+        // Function Examples
+        function greet(name, timeOfDay) {
+            return `Good ${timeOfDay}, ${name}!`;
+        }
+
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            return n * factorial(n - 1);
+        }
+
+        // Array and Object Examples
+        let colors = ["Red", "Green", "Blue", "Yellow"];
+        let person = {
+            name: "Alice",
+            age: 25,
+            occupation: "Developer"
+        };
+
+        function listColors() {
+            return colors.map((color, index) => `${index + 1}. ${color}`).join("<br>");
+        }
+
+        const age = 21;
+    </script>
+</head>
+<body>
+    <h1>Advanced JavaScript Concepts</h1>
+    <p><strong>Age: </strong><script>document.write(age)</script></p>
+    <p><strong>Constant PI:</strong> <script>document.write(PI);</script></p>
+    <p><strong>Message:</strong> <script>document.write(message);</script></p>
+    <p><strong>Sum:</strong> <script>document.write(sum);</script></p>
+    <p><strong>Product:</strong> <script>document.write(product);</script></p>
+    <p><strong>Difference:</strong> <script>document.write(difference);</script></p>
+    <p><strong>Quotient:</strong> <script>document.write(quotient);</script></p>
+    <p><strong>Modulus:</strong> <script>document.write(modulus);</script></p>
+    <p><strong>Check Number (-3):</strong> <script>document.write(checkNumber(-3));</script></p>
+    <p><strong>Counting to Ten:</strong> <script>document.write(countToTen());</script></p>
+    <p><strong>While Loop Countdown:</strong> <script>document.write(whileLoopExample());</script></p>
+    <p><strong>Greeting:</strong> <script>document.write(greet("John", "Evening"));</script></p>
+    <p><strong>Factorial of 5:</strong> <script>document.write(factorial(5));</script></p>
+    <p><strong>Array Colors:</strong> <script>document.write(listColors());</script></p>
+    <p><strong>Person Object:</strong> <script>document.write(`Name: ${person.name}, Age: ${person.age}, Occupation: ${person.occupation}`);</script></p>
+</body>
+</html>

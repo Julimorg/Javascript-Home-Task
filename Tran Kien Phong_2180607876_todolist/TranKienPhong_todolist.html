@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="./todolist.js" defer></script>
+    <link rel="stylesheet" href="./todo.css">
+</head>
+<body>
+    <div class="main">
+        <h1>TO DO LIST</h1>
+      
+        <form class="form">
+          <input id="inputtask" type="text" placeholder="Enter your task here!"  required/>
+          <div class="selectTimeDay">
+            <input type="date" id="start" name="trip-start" value="2025-02-12" min="2020-01-01" max="2026-12-31" />
+            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required />
+          </div>
+          <input id="addbutton" value="Add Task" type="submit" />
+        </form>
+        <ol class="todolist"></ol>
+        <button class="clear d-none">Clear All</button>
+      </div>    
+</body>
+</html>
