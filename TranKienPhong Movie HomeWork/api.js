@@ -2,9 +2,14 @@ const movieApi = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity
 const imgPath = 'https://image.tmdb.org/t/p/w1280';
 
 const movie_grid = document.querySelector(".movie-grid");
+const form = document.getElementById("form");
+const search = document.getElementById("search");
 
-getMovies();
-
+document.addEventListener("DOMContentLoaded", function () {
+    getMovies();
+    filterMostViewMovie();
+    filterfewViewMovie();
+});
 
 //? Fetching  API
 async function getMovies() {
@@ -21,6 +26,8 @@ async function getMovies() {
             if (!res.ok) {
                 throw new Error("Failed to fetch movies");
             }
+            
+            // Call the function to attach the event listener
             const data = await res.json();
             localStorage.setItem('movies', JSON.stringify(data));
 
@@ -66,4 +73,62 @@ function getClassByRate(vote) {
     }
 }
 
+//? Search function
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
+    const searchTerm = search.value;
+
+    if (searchTerm && searchTerm !== '') {
+        // Perform search on stored data
+        searchMovies(searchTerm);
+    } else {
+        window.location.reload();
+    }
+});
+function searchMovies(query) {
+    const storedMovies = localStorage.getItem('movies');
+
+    if (storedMovies) {
+        const data = JSON.parse(storedMovies);
+        const filteredMovies = data.results.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
+        showMovies(filteredMovies);
+    } else {
+        alert('No movie data found!');
+    }
+}
+
+//? Filter by Largest View based on vote_count 
+function filterMostViewMovie()
+{
+    const mostViewBtn = document.getElementById("mostView");
+    mostViewBtn.addEventListener("click", () => {
+        const storedMovies = localStorage.getItem('movies');
+    
+        if (storedMovies) {
+            const data = JSON.parse(storedMovies);
+            const filteredMovies = data.results.filter(movie => movie.vote_count > 1500);
+            showMovies(filteredMovies);
+        } else {
+            alert("No movie data found!");
+        }
+    });
+}
+
+
+//? Filter by Largest View based vote_count
+function filterfewViewMovie()
+{
+    const fewViewBtn = document.getElementById("fewView");
+fewViewBtn.addEventListener("click",() => {
+    const storedMovies = localStorage.getItem('movies');
+    
+    if (storedMovies) {
+        const data = JSON.parse(storedMovies);
+        const filteredMovies = data.results.filter(movie => movie.vote_count <= 1500);
+        showMovies(filteredMovies);
+    } else {
+        alert("No movie data found!");
+    }
+})
+}
